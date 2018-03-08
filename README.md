@@ -101,15 +101,15 @@ Schema::create('items', function (Blueprint $table) {
 
 ### Models
 
-To set up a model to use ULID, simply use the HasUlid trait and set the incrementing flag to false.
+To set up a model to use ULID, simply use the HasUlidTrait trait and set the incrementing flag to false.
 
 ``` php
 use Illuminate\Database\Eloquent\Model;
-use Rorecek\Ulid\HasUlid;
+use Rorecek\Ulid\HasUlidTrait;
 
 class Item extends Model
 {
-  use HasUlid;
+  use HasUlidTrait;
   ....
   
   /**
@@ -128,7 +128,7 @@ class Item extends Model
 When you create a new instance of a model which uses ULIDs, this package will automatically add ULID as id of the model.
 
 ``` php
-// 'HasUlid' trait will automatically generate and assign id field.
+// 'HasUlidTrait' trait will automatically generate and assign id field.
 $item = Item::create(['name' => 'Awesome item']);
 echo $item->id;
 // 01brh9q9amqp7mt7xqqb6b5k58
